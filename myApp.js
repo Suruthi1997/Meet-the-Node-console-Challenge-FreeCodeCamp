@@ -41,7 +41,22 @@ app.use(function(req, res, next)
    next();
 });
 
+//Chain Middleware to Create a Time Server
 
+function getdatenow()
+{
+   return new Date().toString();
+}
+
+app.get("/now", function(req,res,next)
+{
+   req.time = getdatenow();
+   next();
+},
+function(req,res)
+{
+res.json({time: req.time});
+})
 
 
 
