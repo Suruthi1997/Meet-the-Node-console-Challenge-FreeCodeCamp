@@ -58,7 +58,11 @@ function(req,res)
 res.json({time: req.time});
 })
 
-
+//Route parameter input
+app.get("/:word/echo", function(req,res)
+{
+   res.json({echo: req.params.word});
+});
 
 
 
